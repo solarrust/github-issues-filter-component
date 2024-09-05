@@ -19,7 +19,22 @@ const LabelFilter = () => {
   }, []);
 
   // todo - render labels
-  return <GithubFilter />;
+  return <GithubFilter
+          name="Label"
+          header="Filter by labels"
+          placeholder="Filter labels"
+          items={labels}
+          filterFn={(label, query) => label.name.match(new RegExp(query, "i"))}
+          renderItem={(label) => (
+            <div className="flex items-center gap-2">
+              <div
+              style={{ backgroundColor: `#${label.color}` }}
+              className="w-4 h-4 rounded-lg border border-gray-300"
+              ></div>
+              {label.name}
+            </div>
+          )}
+        />;
 };
 
 export default LabelFilter;

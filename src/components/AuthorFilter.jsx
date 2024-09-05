@@ -19,6 +19,22 @@ const AuthorFilter = () => {
   }, []);
 
   // todo - render authors
-  return <GithubFilter />;
+  return <GithubFilter
+          name="Author"
+          header="Filter by authors"
+          placeholder="Filter authors"
+          filterFn={(author, query) => author.login.match(new RegExp(query, "i"))}
+          items={authors}
+          renderItem={(author) => (
+            <div className="flex gap-2 items-center">
+              <img
+                src={author.avatar_url}
+                alt={author.login}
+                className="w-4 h-4 rounded-lg border border-gray-300"
+              />
+              {author.login}
+            </div>
+          )}
+        />;
 };
 export default AuthorFilter;

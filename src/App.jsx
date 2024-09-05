@@ -6,10 +6,12 @@ function App() {
   return (
     <>
       <h1 className="text-3xl font-bold m-5">Github Issue filters</h1>
-      <div className="flex gap-4 m-5">
-        <AuthorFilter />
-        <LabelFilter />
-        <MilestoneFilter />
+      <div className="flex bg-gray-100 text-gray-600 pr-5 border border-gray-300">
+        <div className="flex justify-center gap-10 m-3 text-sm w-full">
+          <AuthorFilter />
+          <LabelFilter />
+          <MilestoneFilter />
+        </div>
       </div>
     </>
   );
